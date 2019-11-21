@@ -79,8 +79,8 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        checkIfPlayerWon();
-        // checkCollisions();
+        checkCollisions();
+        checkIfPlayerWon(); 
     }
 
     /* This is called by the update function and loops through all of the
@@ -95,6 +95,10 @@ var Engine = (function(global) {
             enemy.update(dt);
         });
         player.update();
+    }
+
+    function checkCollisions() {
+
     }
 
     function checkIfPlayerWon() {
