@@ -79,6 +79,7 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
+        checkIfPlayerWon();
         // checkCollisions();
     }
 
@@ -94,6 +95,12 @@ var Engine = (function(global) {
             enemy.update(dt);
         });
         player.update();
+    }
+
+    function checkIfPlayerWon() {
+        if(player.y == 0) {
+            // Player has won
+        }
     }
 
     /* This function initially draws the "game level", it will then call
