@@ -98,7 +98,21 @@ var Engine = (function(global) {
     }
 
     function checkCollisions() {
+        AABBCollisionDetection();
+    }
 
+    // A collision function that performs simple rectangle collision detection
+    function AABBCollisionDetection() {
+        for(let enemy of allEnemies) {
+            if (enemy.getTrueX() < player.getTrueX() + player.width &&
+            enemy.getTrueX() + enemy.width > player.getTrueX() &&
+            enemy.getTrueY() < player.getTrueY() + player.height &&
+            enemy.getTrueY() + enemy.height > player.getTrueY())
+                {
+                    player.respawn();
+                    break;
+                }
+        }
     }
 
     function checkIfPlayerWon() {
@@ -193,4 +207,5 @@ var Engine = (function(global) {
      * from within their app.js files.
      */
     global.ctx = ctx;
+
 })(this);
